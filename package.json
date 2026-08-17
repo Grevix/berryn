@@ -6,7 +6,7 @@
   "author": "Berryn Core Engineering Team",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm -r --filter \"./packages/*\" exec tsc --build",
+    "build": "tsc --build",
     "clean": "pnpm -r --filter \"./packages/*\" exec rimraf dist",
     "test": "vitest run",
     "typecheck": "tsc --build",
