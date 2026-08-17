@@ -35,5 +35,9 @@
     "@berryn/diagnostics": "workspace:*",
     "@berryn/xlsx-inspect": "workspace:*"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

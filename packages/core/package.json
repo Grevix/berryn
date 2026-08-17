@@ -31,5 +31,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

@@ -44,5 +44,9 @@
     "@berryn/xlsx-validate": "workspace:*",
     "commander": "^13.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

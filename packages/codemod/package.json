@@ -36,5 +36,9 @@
     "@berryn/project-inspect": "workspace:*",
     "ts-morph": "^23.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

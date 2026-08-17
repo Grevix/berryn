@@ -36,5 +36,9 @@
     "@berryn/security": "workspace:*",
     "typescript": "^5.7.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

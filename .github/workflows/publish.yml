@@ -1,14 +1,10 @@
 name: Publish Berryn to npm
 
-# Triggers ONLY on version tags: v0.1.0, v0.2.0, v1.0.0, etc.
-# Never triggers on branch pushes — CI is separate (ci.yml).
 on:
   push:
     tags:
       - "v*"
 
-# id-token: write is required for npm Trusted Publishing (OIDC).
-# contents: read is sufficient for checkout.
 permissions:
   contents: read
   id-token: write
@@ -26,17 +22,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://registry.npmjs.org/'
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
 
+      # ── Environment & Registry Verification (No Secrets Printed) ─────────────
+      - name: Print Registry & Environment Configuration
+        run: |
+          echo "=== Registry Configuration ==="
+          npm config get registry
+          npm config get @berryn:registry || true
+          echo "=== Environment Versions ==="
+          node --version
+          pnpm --version
+          npm --version
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # ── Validation gates ─────────────────────────────────────────────────────
+      # ── Validation Gates ─────────────────────────────────────────────────────
 
       - name: Run tests
         run: pnpm test
@@ -53,32 +60,47 @@ jobs:
       - name: Security audit
         run: pnpm audit --audit-level=high
 
-      # ── Version gate: git tag must match packages/cli/package.json version ───
+      # ── Version Gate: Verify all workspace packages match tag version ─────────
 
-      - name: Verify tag matches CLI package version
+      - name: Verify package version matches git tag
         run: |
-          PKG_VERSION=$(node -p "require('./packages/cli/package.json').version")
           TAG_VERSION="${GITHUB_REF_NAME#v}"
-          echo "Package version : $PKG_VERSION"
-          echo "Git tag version : $TAG_VERSION"
-          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
-            echo "❌ Tag $GITHUB_REF_NAME does not match package version $PKG_VERSION"
+          CLI_VERSION=$(node -p "require('./packages/cli/package.json').version")
+          echo "Git Tag Version  : $TAG_VERSION"
+          echo "CLI Version      : $CLI_VERSION"
+          if [ "$CLI_VERSION" != "$TAG_VERSION" ]; then
+            echo "❌ Git tag $GITHUB_REF_NAME does not match CLI version $CLI_VERSION"
             exit 1
           fi
-          echo "✅ Version $PKG_VERSION matches tag $GITHUB_REF_NAME"
 
-      # ── Package content inspection ───────────────────────────────────────────
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const tag = '${TAG_VERSION}';
+          const dirs = fs.readdirSync('packages').map(d => path.join('packages', d, 'package.json')).filter(p => fs.existsSync(p));
+          dirs.forEach(f => {
+            const v = JSON.parse(fs.readFileSync(f, 'utf8')).version;
+            if (v !== tag) {
+              console.error('❌ Version mismatch in ' + f + ': ' + v + ' != ' + tag);
+              process.exit(1);
+            }
+          });
+          console.log('✅ All 15 workspace packages consistently match version ' + tag);
+          "
+
+      # ── Dry-Run Inspection ───────────────────────────────────────────────────
 
       - name: Inspect npm packages (dry run)
         run: pnpm publish -r --no-git-checks --dry-run
 
       # ── Publish via OIDC Trusted Publishing ──────────────────────────────────
       #
-      # id-token: write permission provides OIDC identity to npm Trusted Publishing.
-      # --provenance binds build attestation.
+      # permissions: id-token: write enables OIDC identity for npm Trusted Publishing.
+      # publishConfig in package.json ensures target is https://registry.npmjs.org/.
+      # --provenance binds signed build attestation.
       # --access public ensures scoped @berryn/* packages publish publicly.
-      # pnpm publish -r publishes all workspace packages in topological order
-      # and converts workspace:* dependency specifiers to exact version 0.1.0.
+      # pnpm publish -r publishes all packages in topological dependency order
+      # and skips packages that already exist on registry.npmjs.org.
       # ─────────────────────────────────────────────────────────────────────────
-      - name: Publish to npm
+      - name: Publish all packages to npm
         run: pnpm publish -r --no-git-checks --provenance --access public
