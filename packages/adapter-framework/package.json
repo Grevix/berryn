@@ -4,9 +4,9 @@
   "description": "Berryn Vertical Adapter Framework — Abstract interface for multi-vertical dependency migration probes",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Grevix/berryn.git"
+    "url": "git+https://github.com/Grevix/berryn.git"
   },
-  "homepage": "https://github.com/Grevix/berryn",
+  "homepage": "https://github.com/Grevix/berryn#readme",
   "bugs": {
     "url": "https://github.com/Grevix/berryn/issues"
   },
