@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "description": "Berryn — Migration, compatibility, and validation infrastructure",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Grevix/berryn.git"
+  },
+  "homepage": "https://github.com/Grevix/berryn",
+  "bugs": {
+    "url": "https://github.com/Grevix/berryn/issues"
+  },
   "author": "Berryn Core Engineering Team",
   "license": "MIT",
   "scripts": {

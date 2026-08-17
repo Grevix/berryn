@@ -1,7 +1,20 @@
 {
   "name": "berryn",
   "version": "0.1.0",
-  "description": "Berryn — CLI for dependency migration, XLSX inspection, semantic diffing, and validation",
+  "description": "Berryn — Migration, compatibility, and validation infrastructure CLI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Grevix/berryn.git"
+  },
+  "homepage": "https://github.com/Grevix/berryn",
+  "bugs": {
+    "url": "https://github.com/Grevix/berryn/issues"
+  },
+  "license": "MIT",
+  "author": "Berryn Core Engineering Team",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "main": "./dist/index.js",
   "bin": {
     "berryn": "./dist/index.js"

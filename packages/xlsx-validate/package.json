@@ -2,6 +2,19 @@
   "name": "@berryn/xlsx-validate",
   "version": "0.1.0",
   "description": "Berryn XLSX Validation Engine — Structural, OPC relationship, semantic XML, and headless consumer checks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Grevix/berryn.git"
+  },
+  "homepage": "https://github.com/Grevix/berryn",
+  "bugs": {
+    "url": "https://github.com/Grevix/berryn/issues"
+  },
+  "license": "MIT",
+  "author": "Berryn Core Engineering Team",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

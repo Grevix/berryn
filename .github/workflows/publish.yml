@@ -1,0 +1,105 @@
+name: Publish Berryn to npm
+
+# Triggers ONLY on version tags: v0.1.0, v0.2.0, v1.0.0, etc.
+# Never triggers on branch pushes — CI is separate (ci.yml).
+on:
+  push:
+    tags:
+      - "v*"
+
+# id-token: write is required for npm Trusted Publishing (OIDC).
+# contents: read is sufficient for checkout.
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Validate and Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Node 22 LTS — matches CI pipeline and satisfies npm Trusted Publishing
+      # requirements (Node >= 22.14, npm >= 11.5.1).
+      # registry-url configures .npmrc so NODE_AUTH_TOKEN is used for auth.
+      - name: Setup Node.js 22 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # ── Validation gate (mirrors ci.yml; must all pass before publish) ────────
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build monorepo packages
+        run: pnpm run build
+
+      - name: Typecheck TypeScript packages
+        run: pnpm run typecheck
+
+      - name: Run CLI smoke test
+        run: node packages/cli/dist/index.js inspect . --project --format markdown
+
+      - name: Security audit
+        run: pnpm audit --audit-level=high
+
+      # ── Version gate: git tag must match packages/cli/package.json version ───
+
+      - name: Verify tag matches CLI package version
+        run: |
+          PKG_VERSION=$(node -p "require('./packages/cli/package.json').version")
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          echo "Package version : $PKG_VERSION"
+          echo "Git tag version : $TAG_VERSION"
+          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+            echo "❌  Tag $GITHUB_REF_NAME does not match package version $PKG_VERSION"
+            echo "    Bump the version in packages/cli/package.json (and all @berryn/* packages)"
+            echo "    before creating the release tag."
+            exit 1
+          fi
+          echo "✅  Version $PKG_VERSION matches tag $GITHUB_REF_NAME"
+
+      # ── Package content inspection (dry run before real publish) ─────────────
+
+      - name: Inspect packages — dry run
+        run: pnpm publish -r --no-git-checks --dry-run
+
+      # ── Publish ──────────────────────────────────────────────────────────────
+      #
+      # Phase 1 (first-ever publish):
+      #   Add NPM_TOKEN to GitHub repo secrets:
+      #     Settings → Secrets → Actions → New secret → NPM_TOKEN
+      #   Use an npm Automation token (bypasses 2FA for CI publishing).
+      #   NODE_AUTH_TOKEN below picks it up automatically.
+      #
+      # Phase 2 (after all packages exist on npm):
+      #   Configure npm Trusted Publisher for each package:
+      #     npmjs.com → Package → Settings → Trusted Publisher
+      #     → GitHub Actions → Grevix/berryn → publish.yml
+      #   Then remove NPM_TOKEN from GitHub secrets — OIDC takes over.
+      #   The id-token: write permission above enables OIDC automatically.
+      #
+      # --provenance attaches a signed build provenance attestation to every
+      # published package. Required for npm provenance / supply-chain compliance.
+      # --access public is required for scoped @berryn/* packages (default is
+      # restricted for scoped packages).
+      # pnpm publish -r publishes all non-private workspace packages in
+      # topological dependency order and rewrites workspace:* → 0.x.x.
+      # ─────────────────────────────────────────────────────────────────────────
+      - name: Publish all packages to npm
+        run: pnpm publish -r --no-git-checks --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
