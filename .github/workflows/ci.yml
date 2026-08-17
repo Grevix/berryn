@@ -36,5 +36,8 @@ jobs:
       - name: Typecheck TypeScript Packages
         run: pnpm run typecheck
 
+      - name: Security Audit
+        run: pnpm audit --audit-level=high
+
       - name: Run Berryn CLI Validation Smoke Test
         run: node packages/cli/dist/index.js inspect . --project --format markdown
