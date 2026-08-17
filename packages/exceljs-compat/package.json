@@ -1,6 +1,6 @@
 {
   "name": "@berryn/exceljs-compat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Berryn ExcelJS Compatibility Facade — Narrow, evidence-gated import replacement for ExcelJS",
   "repository": {
     "type": "git",

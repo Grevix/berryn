@@ -1,6 +1,6 @@
 {
   "name": "@berryn/migration-report",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Berryn Migration Report — JSON schema validator and Markdown human summary generator",
   "repository": {
     "type": "git",

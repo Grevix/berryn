@@ -11,7 +11,7 @@ const program = new Command();
 program
   .name('berryn')
   .description('Berryn — Migration, compatibility, and validation infrastructure CLI')
-  .version('0.1.0');
+  .version('0.1.1');
 
 program
   .command('inspect <path>')

@@ -1,6 +1,6 @@
 {
   "name": "@berryn/xlsx-validate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Berryn XLSX Validation Engine — Structural, OPC relationship, semantic XML, and headless consumer checks",
   "repository": {
     "type": "git",

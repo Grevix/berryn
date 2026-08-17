@@ -1,6 +1,6 @@
 {
   "name": "@berryn/security",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Berryn Security — Resource budget enforcement, canonical path sandbox, zip bomb defense, and XXE guards",
   "repository": {
     "type": "git",

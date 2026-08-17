@@ -1,6 +1,6 @@
 {
   "name": "@berryn/preservation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Berryn Bounded Preservation Engine — Preservation manifests and no-silent-loss mutation guards",
   "repository": {
     "type": "git",

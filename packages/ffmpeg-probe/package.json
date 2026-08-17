@@ -1,6 +1,6 @@
 {
   "name": "@berryn/ffmpeg-probe",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Berryn FFmpeg Research Probe — Evidence-driven inspection of fluent-ffmpeg migration patterns and direct-spawn recommendation",
   "repository": {
     "type": "git",
