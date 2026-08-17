@@ -4,6 +4,14 @@
   "description": "Berryn Release Candidate Verification Engine — SBOM generation, release gates audit, and OIDC provenance attestation",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "type": "module",
   "scripts": {
     "build": "tsc --build",

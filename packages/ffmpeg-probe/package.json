@@ -4,6 +4,14 @@
   "description": "Berryn FFmpeg Research Probe — Evidence-driven inspection of fluent-ffmpeg migration patterns and direct-spawn recommendation",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "type": "module",
   "scripts": {
     "build": "tsc --build",

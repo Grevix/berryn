@@ -27,19 +27,14 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      # TEMPORARY:
-      # TypeScript project-reference/typecheck failure is currently being isolated.
-      # This step is intentionally skipped via if: false for pipeline discovery.
-      # Do NOT consider CI fully green/release-ready until this step is restored and passes.
-      - name: Typecheck TypeScript Packages
-        if: false
-        run: pnpm run typecheck
-
       - name: Execute Vitest Suite
         run: pnpm test
 
       - name: Build Monorepo Packages
         run: pnpm run build
+
+      - name: Typecheck TypeScript Packages
+        run: pnpm run typecheck
 
       - name: Run Berryn CLI Validation Smoke Test
         run: node packages/cli/dist/index.js inspect . --project --format markdown

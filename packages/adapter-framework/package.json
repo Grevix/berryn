@@ -4,6 +4,14 @@
   "description": "Berryn Vertical Adapter Framework — Abstract interface for multi-vertical dependency migration probes",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "type": "module",
   "scripts": {
     "build": "tsc --build",
