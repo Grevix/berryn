@@ -4,8 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/berryn.svg)](https://www.npmjs.com/package/berryn)
 [![npm downloads](https://img.shields.io/npm/dm/berryn.svg)](https://www.npmjs.com/package/berryn)
-[![GitHub release](https://img.shields.io/github/v/release/Grevix/berryn)](https://github.com/Grevix/berryn/releases)
-[![License: MIT](https://img.shields.io/github/license/Grevix/berryn)](https://github.com/Grevix/berryn/blob/main/LICENSE)
+[![CI](https://github.com/Grevix/berryn/actions/workflows/ci.yml/badge.svg)](https://github.com/Grevix/berryn/actions/workflows/ci.yml)
 
 ---
 
