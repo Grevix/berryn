@@ -2,12 +2,10 @@
 
 **Berryn is migration, compatibility, validation, and evidence infrastructure for safely changing developer dependencies without turning uncertainty into silent breakage.**
 
-[![npm version](https://img.shields.io/badge/npm-0.1.0-blue.svg)](https://www.npmjs.com/package/berryn)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.0.0-brightgreen.svg)](package.json)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9%20Strict-blue)](tsconfig.base.json)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](.github/workflows/ci.yml)
-[![Security Policy](https://img.shields.io/badge/security-local--first%20%7C%20sandboxed-success)](SECURITY.md)
+[![npm version](https://img.shields.io/npm/v/berryn.svg)](https://www.npmjs.com/package/berryn)
+[![npm downloads](https://img.shields.io/npm/dm/berryn.svg)](https://www.npmjs.com/package/berryn)
+[![GitHub release](https://img.shields.io/github/v/release/Grevix/berryn)](https://github.com/Grevix/berryn/releases)
+[![License: MIT](https://img.shields.io/github/license/Grevix/berryn)](https://github.com/Grevix/berryn/blob/main/LICENSE)
 
 ---
 
