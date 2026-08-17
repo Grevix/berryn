@@ -5,6 +5,9 @@
 [![npm version](https://img.shields.io/npm/v/berryn.svg)](https://www.npmjs.com/package/berryn)
 [![npm downloads](https://img.shields.io/npm/dm/berryn.svg)](https://www.npmjs.com/package/berryn)
 [![CI](https://github.com/Grevix/berryn/actions/workflows/ci.yml/badge.svg)](https://github.com/Grevix/berryn/actions/workflows/ci.yml)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D22.0.0-brightgreen.svg)](package.json)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7%2B-blue.svg)](tsconfig.base.json)
+[![GitHub tag](https://img.shields.io/github/v/tag/Grevix/berryn?label=tag)](https://github.com/Grevix/berryn/tags)
 
 ---
 
