@@ -1,6 +1,9 @@
 import type { Confidence, Diagnostic } from '@berryn/core';
 import { createDiagnostic, DIAGNOSTIC_CODES } from '@berryn/diagnostics';
-import { Project } from 'ts-morph';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const tsMorph = require('ts-morph');
+const { Project } = tsMorph;
 
 export interface TransformationStep {
   file: string;
