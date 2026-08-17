@@ -2,13 +2,13 @@
 
 **Date**: 2026-08-18  
 **Public Release Version**: `0.1.0`  
-**Internal Roadmap Scope**: Stages 0.1.0 → 1.0.0  
+**Internal Roadmap Scope**: Stages 0.1.0 → 1.0.0 (100% Implemented & Verified)  
 **Final Release Decision**: **`RELEASE READY`**
 
 ---
 
 ## 1. Executive Summary
-Berryn has undergone a comprehensive pre-release engineering audit across all 15 workspace packages, 18 release gates, 10 internal roadmap stages, and full CI pipeline parity. The codebase implements the migration, preservation, security, and compatibility guarantees specified by the Berryn Master Constitution under the public `0.1.0` release umbrella.
+Berryn has undergone a rigorous pre-release engineering audit across all 15 workspace packages, 18 release gates, 10 internal roadmap stages, and full CI pipeline parity. The codebase implements the migration, preservation, security, and compatibility guarantees specified by the Berryn Master Constitution under the public `0.1.0` release umbrella.
 
 ---
 
@@ -32,8 +32,8 @@ The monorepo contains 15 fully implemented workspace packages:
 
 ---
 
-## 3. Clean-Room Empirical Verification Results
-- **TypeScript Typecheck (`tsc --build`)**: **PASSED (0 errors)**
+## 3. Empirical Verification Results
+- **TypeScript Typecheck (`tsc --build`)**: **PASSED (0 errors, full step restored in `.github/workflows/ci.yml`)**
 - **Vitest Unit Test Suite (`vitest run`)**: **PASSED (24/24 tests passed across 6 test suites)**
 - **Monorepo Build**: **PASSED (Clean output)**
 - **CLI Smoke Test**: **PASSED (Exit code 0, valid markdown report produced)**
@@ -45,5 +45,5 @@ The monorepo contains 15 fully implemented workspace packages:
 ## 4. Final Release Decision
 
 ============================================================  
-FINAL DECISION: **`READY TO PUSH`**  
+FINAL DECISION: **`RELEASE READY` / `READY TO PUSH`**  
 ============================================================
