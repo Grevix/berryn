@@ -1,0 +1,17 @@
+{
+  "name": "@berryn/adapter-framework",
+  "version": "0.1.0",
+  "description": "Berryn Vertical Adapter Framework — Abstract interface for multi-vertical dependency migration probes",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*"
+  },
+  "devDependencies": {}
+}

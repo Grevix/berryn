@@ -1,0 +1,16 @@
+{
+  "name": "@berryn/diagnostics",
+  "version": "0.1.0",
+  "description": "Berryn Diagnostics — Diagnostic catalog, severity levels, location formatting, and remediation text",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@berryn/core": "workspace:*"
+  },
+  "devDependencies": {}
+}

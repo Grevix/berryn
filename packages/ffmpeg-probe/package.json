@@ -1,0 +1,19 @@
+{
+  "name": "@berryn/ffmpeg-probe",
+  "version": "0.1.0",
+  "description": "Berryn FFmpeg Research Probe — Evidence-driven inspection of fluent-ffmpeg migration patterns and direct-spawn recommendation",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@berryn/adapter-framework": "workspace:*",
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*",
+    "@berryn/project-inspect": "workspace:*"
+  },
+  "devDependencies": {}
+}

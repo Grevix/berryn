@@ -1,0 +1,20 @@
+{
+  "name": "@berryn/xlsx-inspect",
+  "version": "0.1.0",
+  "description": "Berryn XLSX Inspection — ZIP container inventory, OPC relationship graph resolver, and feature classification",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*",
+    "@berryn/security": "workspace:*",
+    "fast-xml-parser": "^4.5.1",
+    "fflate": "^0.8.2"
+  },
+  "devDependencies": {}
+}

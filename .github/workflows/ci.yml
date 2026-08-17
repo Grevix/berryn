@@ -1,0 +1,40 @@
+name: Berryn CI Pipeline
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-and-test:
+    name: Build & Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck TypeScript Packages
+        run: pnpm run typecheck
+
+      - name: Execute Vitest Suite
+        run: pnpm test
+
+      - name: Build Monorepo Packages
+        run: pnpm run build
+
+      - name: Run Berryn CLI Validation Smoke Test
+        run: node packages/cli/dist/index.js inspect . --project --format markdown

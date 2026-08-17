@@ -1,0 +1,19 @@
+{
+  "name": "@berryn/xlsx-diff",
+  "version": "0.1.0",
+  "description": "Berryn XLSX Diff Engine — Package ZIP entry diffs, OPC graph diffs, and normalized XML semantic diffs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*",
+    "@berryn/xlsx-inspect": "workspace:*",
+    "fast-xml-parser": "^4.5.1"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,129 @@
+{
+  "targetVersion": "4.4.0",
+  "inventoryDate": "2026-08-18",
+  "categories": [
+    {
+      "name": "Workbook",
+      "apis": [
+        "new Workbook()",
+        "workbook.creator",
+        "workbook.lastModifiedBy",
+        "workbook.created",
+        "workbook.modified",
+        "workbook.lastPrinted",
+        "workbook.properties",
+        "workbook.calcProperties",
+        "workbook.views",
+        "workbook.addWorksheet(name, options)",
+        "workbook.getWorksheet(idOrName)",
+        "workbook.removeWorksheet(idOrName)",
+        "workbook.worksheets",
+        "workbook.definedNames",
+        "workbook.addImage(options)",
+        "workbook.xlsx.readFile(filename)",
+        "workbook.xlsx.writeFile(filename)",
+        "workbook.xlsx.load(buffer)",
+        "workbook.xlsx.writeBuffer()"
+      ]
+    },
+    {
+      "name": "Worksheet",
+      "apis": [
+        "worksheet.name",
+        "worksheet.id",
+        "worksheet.state",
+        "worksheet.getCell(r, c)",
+        "worksheet.getRow(rowNumber)",
+        "worksheet.getColumn(colNumberOrKey)",
+        "worksheet.addRow(values)",
+        "worksheet.addRows(values)",
+        "worksheet.insertRow(pos, values)",
+        "worksheet.insertRows(pos, values)",
+        "worksheet.spliceRows(start, count, ...rows)",
+        "worksheet.eachRow(callback)",
+        "worksheet.columns",
+        "worksheet.getSheetValues()",
+        "worksheet.dimensions",
+        "worksheet.actualRowCount",
+        "worksheet.actualColumnCount",
+        "worksheet.mergeCells(range)",
+        "worksheet.unMergeCells(range)",
+        "worksheet.protect(password, options)",
+        "worksheet.unprotect()",
+        "worksheet.addPivotTable(options)",
+        "worksheet.addTable(options)",
+        "worksheet.addImage(imageId, range)",
+        "worksheet.autoFilter",
+        "worksheet.dataValidations",
+        "worksheet.conditionalFormatting",
+        "worksheet.pageSetup",
+        "worksheet.views"
+      ]
+    },
+    {
+      "name": "Cell",
+      "apis": [
+        "cell.value",
+        "cell.text",
+        "cell.formula",
+        "cell.result",
+        "cell.font",
+        "cell.fill",
+        "cell.border",
+        "cell.alignment",
+        "cell.numFmt",
+        "cell.protection",
+        "cell.note",
+        "cell.hyperlink",
+        "cell.dataValidation"
+      ]
+    },
+    {
+      "name": "Row & Column",
+      "apis": [
+        "row.height",
+        "row.hidden",
+        "row.outlineLevel",
+        "row.font",
+        "row.fill",
+        "row.border",
+        "row.alignment",
+        "column.width",
+        "column.hidden",
+        "column.outlineLevel",
+        "column.font",
+        "column.fill",
+        "column.border",
+        "column.alignment"
+      ]
+    },
+    {
+      "name": "Styles & Formatting",
+      "apis": [
+        "font.name",
+        "font.size",
+        "font.family",
+        "font.bold",
+        "font.italic",
+        "font.underline",
+        "font.strike",
+        "font.color",
+        "fill.type",
+        "fill.pattern",
+        "fill.fgColor",
+        "fill.bgColor",
+        "border.top",
+        "border.bottom",
+        "border.left",
+        "border.right",
+        "border.diagonal",
+        "alignment.horizontal",
+        "alignment.vertical",
+        "alignment.wrapText",
+        "alignment.shrinkToFit",
+        "alignment.indent",
+        "alignment.textRotation"
+      ]
+    }
+  ]
+}

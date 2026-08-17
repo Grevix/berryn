@@ -1,0 +1,14 @@
+{
+  "name": "@berryn/core",
+  "version": "0.1.0",
+  "description": "Berryn Core — Vertical-neutral run context, result envelopes, branded types, and policy structures",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

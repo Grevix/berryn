@@ -1,0 +1,20 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/diagnostics" },
+    { "path": "./packages/security" },
+    { "path": "./packages/project-inspect" },
+    { "path": "./packages/xlsx-inspect" },
+    { "path": "./packages/xlsx-diff" },
+    { "path": "./packages/xlsx-validate" },
+    { "path": "./packages/codemod" },
+    { "path": "./packages/exceljs-compat" },
+    { "path": "./packages/migration-report" },
+    { "path": "./packages/preservation" },
+    { "path": "./packages/adapter-framework" },
+    { "path": "./packages/ffmpeg-probe" },
+    { "path": "./packages/release-candidate" },
+    { "path": "./packages/cli" }
+  ]
+}

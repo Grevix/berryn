@@ -1,0 +1,17 @@
+{
+  "name": "@berryn/security",
+  "version": "0.1.0",
+  "description": "Berryn Security — Resource budget enforcement, canonical path sandbox, zip bomb defense, and XXE guards",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*"
+  },
+  "devDependencies": {}
+}

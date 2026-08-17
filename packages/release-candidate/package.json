@@ -1,0 +1,17 @@
+{
+  "name": "@berryn/release-candidate",
+  "version": "0.1.0",
+  "description": "Berryn Release Candidate Verification Engine — SBOM generation, release gates audit, and OIDC provenance attestation",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*"
+  },
+  "devDependencies": {}
+}

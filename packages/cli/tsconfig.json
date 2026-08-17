@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*"],
+  "references": [
+    { "path": "../core" },
+    { "path": "../diagnostics" },
+    { "path": "../security" },
+    { "path": "../project-inspect" },
+    { "path": "../xlsx-inspect" },
+    { "path": "../xlsx-diff" },
+    { "path": "../xlsx-validate" },
+    { "path": "../codemod" },
+    { "path": "../exceljs-compat" },
+    { "path": "../migration-report" },
+    { "path": "../preservation" },
+    { "path": "../adapter-framework" },
+    { "path": "../ffmpeg-probe" },
+    { "path": "../release-candidate" }
+  ]
+}

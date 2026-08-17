@@ -1,0 +1,32 @@
+{
+  "name": "berryn",
+  "version": "0.1.0",
+  "description": "Berryn — CLI for dependency migration, XLSX inspection, semantic diffing, and validation",
+  "main": "./dist/index.js",
+  "bin": {
+    "berryn": "./dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@berryn/adapter-framework": "workspace:*",
+    "@berryn/codemod": "workspace:*",
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*",
+    "@berryn/exceljs-compat": "workspace:*",
+    "@berryn/ffmpeg-probe": "workspace:*",
+    "@berryn/migration-report": "workspace:*",
+    "@berryn/preservation": "workspace:*",
+    "@berryn/project-inspect": "workspace:*",
+    "@berryn/release-candidate": "workspace:*",
+    "@berryn/security": "workspace:*",
+    "@berryn/xlsx-diff": "workspace:*",
+    "@berryn/xlsx-inspect": "workspace:*",
+    "@berryn/xlsx-validate": "workspace:*",
+    "commander": "^13.0.0"
+  },
+  "devDependencies": {}
+}

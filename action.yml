@@ -1,0 +1,19 @@
+name: 'Berryn Migration & Validation Action'
+description: 'Continuous dependency migration risk inspection and XLSX validation engine'
+author: 'Berryn Engineering Team'
+inputs:
+  command:
+    description: 'Berryn CLI command to execute (inspect, diff, validate, migrate)'
+    required: false
+    default: 'validate'
+  target:
+    description: 'Target project path or workbook file'
+    required: false
+    default: '.'
+  format:
+    description: 'Output format (text, json, markdown)'
+    required: false
+    default: 'markdown'
+runs:
+  using: 'node22'
+  main: 'packages/cli/dist/index.js'
