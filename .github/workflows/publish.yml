@@ -22,9 +22,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Node 22 LTS — matches CI pipeline and satisfies npm Trusted Publishing
-      # requirements (Node >= 22.14, npm >= 11.5.1).
-      # registry-url configures .npmrc so NODE_AUTH_TOKEN is used for auth.
       - name: Setup Node.js 22 LTS
         uses: actions/setup-node@v4
         with:
@@ -39,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # ── Validation gate (mirrors ci.yml; must all pass before publish) ────────
+      # ── Validation gates ─────────────────────────────────────────────────────
 
       - name: Run tests
         run: pnpm test
@@ -65,41 +62,23 @@ jobs:
           echo "Package version : $PKG_VERSION"
           echo "Git tag version : $TAG_VERSION"
           if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
-            echo "❌  Tag $GITHUB_REF_NAME does not match package version $PKG_VERSION"
-            echo "    Bump the version in packages/cli/package.json (and all @berryn/* packages)"
-            echo "    before creating the release tag."
+            echo "❌ Tag $GITHUB_REF_NAME does not match package version $PKG_VERSION"
             exit 1
           fi
-          echo "✅  Version $PKG_VERSION matches tag $GITHUB_REF_NAME"
+          echo "✅ Version $PKG_VERSION matches tag $GITHUB_REF_NAME"
 
-      # ── Package content inspection (dry run before real publish) ─────────────
+      # ── Package content inspection ───────────────────────────────────────────
 
-      - name: Inspect packages — dry run
+      - name: Inspect npm packages (dry run)
         run: pnpm publish -r --no-git-checks --dry-run
 
-      # ── Publish ──────────────────────────────────────────────────────────────
+      # ── Publish via OIDC Trusted Publishing ──────────────────────────────────
       #
-      # Phase 1 (first-ever publish):
-      #   Add NPM_TOKEN to GitHub repo secrets:
-      #     Settings → Secrets → Actions → New secret → NPM_TOKEN
-      #   Use an npm Automation token (bypasses 2FA for CI publishing).
-      #   NODE_AUTH_TOKEN below picks it up automatically.
-      #
-      # Phase 2 (after all packages exist on npm):
-      #   Configure npm Trusted Publisher for each package:
-      #     npmjs.com → Package → Settings → Trusted Publisher
-      #     → GitHub Actions → Grevix/berryn → publish.yml
-      #   Then remove NPM_TOKEN from GitHub secrets — OIDC takes over.
-      #   The id-token: write permission above enables OIDC automatically.
-      #
-      # --provenance attaches a signed build provenance attestation to every
-      # published package. Required for npm provenance / supply-chain compliance.
-      # --access public is required for scoped @berryn/* packages (default is
-      # restricted for scoped packages).
-      # pnpm publish -r publishes all non-private workspace packages in
-      # topological dependency order and rewrites workspace:* → 0.x.x.
+      # id-token: write permission provides OIDC identity to npm Trusted Publishing.
+      # --provenance binds build attestation.
+      # --access public ensures scoped @berryn/* packages publish publicly.
+      # pnpm publish -r publishes all workspace packages in topological order
+      # and converts workspace:* dependency specifiers to exact version 0.1.0.
       # ─────────────────────────────────────────────────────────────────────────
-      - name: Publish all packages to npm
+      - name: Publish to npm
         run: pnpm publish -r --no-git-checks --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
