@@ -9,7 +9,7 @@
     "build": "pnpm -r --filter \"./packages/*\" exec tsc --build",
     "clean": "pnpm -r --filter \"./packages/*\" exec rimraf dist",
     "test": "vitest run",
-    "typecheck": "pnpm -r exec tsc --noEmit",
+    "typecheck": "tsc --build",
     "lint": "eslint \"packages/*/src/**/*.ts\"",
     "format": "prettier --check \"packages/*/src/**/*.ts\"",
     "verify": "pnpm typecheck && pnpm test"

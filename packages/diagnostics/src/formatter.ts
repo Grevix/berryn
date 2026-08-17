@@ -24,7 +24,7 @@ export function formatDiagnosticsSummary(diagnostics: Diagnostic[]): string {
     return 'Zero diagnostics reported. Execution clean.';
   }
 
-  const counts = {
+  const counts: Record<'critical' | 'error' | 'warning' | 'info', number> = {
     critical: 0,
     error: 0,
     warning: 0,
