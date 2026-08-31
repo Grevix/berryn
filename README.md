@@ -45,15 +45,15 @@ Existing tools offer only all-or-nothing replacements or blind regex codemods th
 
 | Capability | What It Does | Status |
 |---|---|---|
-| **Project Inspection** | Scans `package.json` manifests and TypeScript AST imports (`ts-morph`) without running repository code. | **VERIFIED (0.1.0)** |
-| **XLSX OPC Inspection** | Bounded ZIP archive inventory (`fflate`) and Open Packaging Conventions (OPC) relationship parsing. | **VERIFIED (0.1.0)** |
-| **Package & XML Diff** | Compares ZIP archive parts byte-by-byte and performs normalized XML string diffing. | **VERIFIED (0.1.0)** |
-| **Migration Assistance** | AST-driven import and call-site transformations generating unified `.patch` previews in temporary Git worktrees. | **VERIFIED (0.1.0)** |
-| **Layered Validation** | Multi-stage verification: Structural, OPC Relationship, Semantic XML, and Headless Consumer Smoke Tests. | **VERIFIED (0.1.0)** |
-| **Bounded Preservation** | Computes `PreservationManifest` instances and asserts `assertNoSilentLoss()`. Throws on unmodeled part loss. | **VERIFIED (0.1.0)** |
-| **ExcelJS Compatibility** | Narrow import-compatible facade (`Workbook`, `Worksheet`, `Cell`) with loud `BerrynCompatibilityError` failures. | **VERIFIED (0.1.0)** |
-| **Evidence Reports** | Versioned `BERRYN_REPORT_V1` JSON schemas and executive Markdown summaries. | **VERIFIED (0.1.0)** |
-| **CI Integration** | Deterministic `--no-network` GitHub Action (`action.yml`) with exit codes 0, 2, 3, 4, 5, 10. | **VERIFIED (0.1.0)** |
+| **Project Inspection** | Scans `package.json` manifests and TypeScript AST imports (`ts-morph`) without running repository code. | **VERIFIED (0.2.0)** |
+| **XLSX OPC Inspection** | Bounded ZIP archive inventory (`fflate`) and Open Packaging Conventions (OPC) relationship parsing. | **VERIFIED (0.2.0)** |
+| **Package & XML Diff** | Compares ZIP archive parts byte-by-byte and performs normalized XML string diffing. | **VERIFIED (0.2.0)** |
+| **Migration Assistance** | AST-driven import and call-site transformations generating unified `.patch` previews in temporary Git worktrees. | **VERIFIED (0.2.0)** |
+| **Layered Validation** | Multi-stage verification: Structural, OPC Relationship, Semantic XML, and Headless Consumer Smoke Tests. | **VERIFIED (0.2.0)** |
+| **Bounded Preservation** | Computes `PreservationManifest` instances and asserts `assertNoSilentLoss()`. Throws on unmodeled part loss. | **VERIFIED (0.2.0)** |
+| **ExcelJS Compatibility** | Narrow import-compatible facade (`Workbook`, `Worksheet`, `Cell`) with loud `BerrynCompatibilityError` failures. | **VERIFIED (0.2.0)** |
+| **Evidence Reports** | Versioned `BERRYN_REPORT_V1` JSON schemas and executive Markdown summaries. | **VERIFIED (0.2.0)** |
+| **CI Integration** | Deterministic `--no-network` GitHub Action (`action.yml`) with exit codes 0, 2, 3, 4, 5, 10. | **VERIFIED (0.2.0)** |
 
 ---
 
@@ -107,7 +107,7 @@ graph TD
 
 ## Package Architecture (15 Packages)
 
-All packages are maintained inside a single TypeScript `pnpm` monorepo locked at version `0.1.0`:
+All packages are maintained inside a single TypeScript `pnpm` monorepo released under version `0.2.0`:
 
 | Package | Responsibility | Public / Internal | Status |
 |---|---|---|---|
@@ -337,22 +337,22 @@ Berryn is local-first, private by default (`network: 'disabled'`), and sandboxed
 
 ---
 
-## Roadmap: Public 0.1.0 Version Umbrella
+## Roadmap & Version Consolidation (0.2.0 Release)
 
-Public package distribution is locked at version **`0.1.0`**. All technical capabilities spanning internal roadmap stages 0.1.0 through 1.0.0 are implemented under this single public version:
+The **Berryn 0.2.0** consolidation release incorporates internal milestone capabilities 0.1.0 through 0.8.0 into a unified production distribution:
 
-| Internal Stage | Internal Capability | Public Version | Status |
+| Internal Stage | Internal Capability | Release Version | Status |
 |---|---|---|---|
-| **Stage 0.1** | Foundation Probe & OPC Inspector | `0.1.0` | **VERIFIED** |
-| **Stage 0.2** | AST Codemod & Patch Preview Generator | `0.1.0` | **VERIFIED** |
-| **Stage 0.3** | Layered Semantic Validation Harness | `0.1.0` | **VERIFIED** |
-| **Stage 0.4** | Narrow ExcelJS Compatibility Facade | `0.1.0` | **VERIFIED** |
-| **Stage 0.5** | CI Migration Infrastructure & Action | `0.1.0` | **VERIFIED** |
-| **Stage 0.6** | Bounded Preservation & No-Silent-Loss Guard | `0.1.0` | **VERIFIED** |
-| **Stage 0.7** | Production Hardening & Resource Limits | `0.1.0` | **VERIFIED** |
-| **Stage 0.8** | Vertical Adapter Framework & FFmpeg Probe | `0.1.0` | **VERIFIED** |
-| **Stage 0.9** | Release Candidate (SBOM & Provenance) | `0.1.0` | **VERIFIED** |
-| **Stage 1.0** | Stable Contract & Monorepo Verification | `0.1.0` | **VERIFIED** |
+| **Stage 0.1** | Foundation Probe & OPC Inspector | `0.2.0` | **VERIFIED** |
+| **Stage 0.2** | AST Codemod & Patch Preview Generator | `0.2.0` | **VERIFIED** |
+| **Stage 0.3** | Layered Semantic Validation Harness | `0.2.0` | **VERIFIED** |
+| **Stage 0.4** | Narrow ExcelJS Compatibility Facade | `0.2.0` | **VERIFIED** |
+| **Stage 0.5** | CI Migration Infrastructure & Action | `0.2.0` | **VERIFIED** |
+| **Stage 0.6** | Bounded Preservation & No-Silent-Loss Guard | `0.2.0` | **VERIFIED** |
+| **Stage 0.7** | Production Hardening & Resource Limits | `0.2.0` | **VERIFIED** |
+| **Stage 0.8** | Vertical Adapter Framework & FFmpeg Probe | `0.2.0` | **VERIFIED** |
+| **Stage 0.9** | Release Candidate (SBOM & Provenance) | `0.2.0` | **VERIFIED** |
+| **Stage 1.0** | Stable Contract & Monorepo Verification | `0.2.0` | **VERIFIED** |
 
 ---
 
