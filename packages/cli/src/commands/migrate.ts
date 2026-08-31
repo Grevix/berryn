@@ -1,6 +1,7 @@
 import { createUnifiedPatch, generateExcelJsCodemodPlan } from '@berryn/codemod';
 import { createRunContext, createResultEnvelope } from '@berryn/core';
 import { buildMigrationReport, renderReportJson, renderReportMarkdown } from '@berryn/migration-report';
+import { findSourceFiles } from '@berryn/project-inspect';
 import { assertPathInSandbox } from '@berryn/security';
 import { EXIT_CODES } from '../exit-codes.js';
 
@@ -16,7 +17,8 @@ export function handleMigrateCommand(projectPath: string, options: MigrateComman
 
   try {
     const sPath = assertPathInSandbox(projectPath, context.policy.allowedRoots);
-    const { plan, diagnostics } = generateExcelJsCodemodPlan(sPath, []);
+    const sourceFiles = findSourceFiles(sPath);
+    const { plan, diagnostics } = generateExcelJsCodemodPlan(sPath, sourceFiles);
 
     const patchText = createUnifiedPatch(plan);
     const envelope = createResultEnvelope(
