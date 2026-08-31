@@ -1,6 +1,6 @@
 {
   "name": "@berryn/preservation",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Berryn Bounded Preservation Engine — Preservation manifests and no-silent-loss mutation guards",
   "repository": {
     "type": "git",
@@ -35,9 +35,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/core": "workspace:*",
-    "@berryn/diagnostics": "workspace:*",
-    "@berryn/xlsx-inspect": "workspace:*"
+    "@berryn/core": "0.2.1",
+    "@berryn/diagnostics": "0.2.1",
+    "@berryn/xlsx-inspect": "0.2.1"
   },
   "devDependencies": {},
   "publishConfig": {

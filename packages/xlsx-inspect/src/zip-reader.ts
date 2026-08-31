@@ -1,7 +1,7 @@
-import type { ContentHash, Diagnostic, ResourceLimits } from '@berryn/core';
+﻿import type { ContentHash, Diagnostic, ResourceLimits } from '@berryn/core';
 import { hashBuffer } from '@berryn/core';
 import { createDiagnostic, DIAGNOSTIC_CODES } from '@berryn/diagnostics';
-import { assertResourceLimits, assertZipBombRatio } from '@berryn/security';
+import { assertResourceLimits, assertZipBombRatio } from '@berryn/guard';
 import { unzipSync } from 'fflate';
 
 export interface ZipEntryMeta {
@@ -81,3 +81,4 @@ export function readZipContainer(
     diagnostics
   };
 }
+

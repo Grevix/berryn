@@ -7,7 +7,7 @@
     "paths": {
       "@berryn/core": ["./packages/core/src/index.ts"],
       "@berryn/diagnostics": ["./packages/diagnostics/src/index.ts"],
-      "@berryn/security": ["./packages/security/src/index.ts"],
+      "@berryn/guard": ["./packages/guard/src/index.ts"],
       "@berryn/project-inspect": ["./packages/project-inspect/src/index.ts"],
       "@berryn/xlsx-inspect": ["./packages/xlsx-inspect/src/index.ts"],
       "@berryn/xlsx-diff": ["./packages/xlsx-diff/src/index.ts"],

@@ -1,7 +1,7 @@
-import { readFileSync } from 'node:fs';
+﻿import { readFileSync } from 'node:fs';
 import { createRunContext, createResultEnvelope } from '@berryn/core';
 import { buildMigrationReport, renderReportJson, renderReportMarkdown } from '@berryn/migration-report';
-import { assertPathInSandbox } from '@berryn/security';
+import { assertPathInSandbox } from '@berryn/guard';
 import { diffXlsxWorkbooks } from '@berryn/xlsx-diff';
 import { EXIT_CODES } from '../exit-codes.js';
 
@@ -40,3 +40,4 @@ export function handleDiffCommand(beforePath: string, afterPath: string, options
     process.exit(EXIT_CODES.ERR_INTERNAL);
   }
 }
+

@@ -8,7 +8,7 @@ export default defineConfig({
     alias: {
       '@berryn/core': resolve(__dirname, './packages/core/src/index.ts'),
       '@berryn/diagnostics': resolve(__dirname, './packages/diagnostics/src/index.ts'),
-      '@berryn/security': resolve(__dirname, './packages/security/src/index.ts'),
+      '@berryn/guard': resolve(__dirname, './packages/guard/src/index.ts'),
       '@berryn/project-inspect': resolve(__dirname, './packages/project-inspect/src/index.ts'),
       '@berryn/xlsx-inspect': resolve(__dirname, './packages/xlsx-inspect/src/index.ts'),
       '@berryn/xlsx-diff': resolve(__dirname, './packages/xlsx-diff/src/index.ts'),

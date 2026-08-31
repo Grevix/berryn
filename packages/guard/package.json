@@ -1,7 +1,7 @@
 {
-  "name": "@berryn/adapter-framework",
+  "name": "@berryn/guard",
   "version": "0.2.1",
-  "description": "Berryn Vertical Adapter Framework — Abstract interface for multi-vertical dependency migration probes",
+  "description": "Berryn Guard — Resource budget enforcement, canonical path sandbox, zip bomb defense, and XXE guards",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Grevix/berryn.git"
@@ -36,8 +36,7 @@
   },
   "dependencies": {
     "@berryn/core": "0.2.1",
-    "@berryn/diagnostics": "0.2.1",
-    "@berryn/project-inspect": "0.2.1"
+    "@berryn/diagnostics": "0.2.1"
   },
   "devDependencies": {},
   "publishConfig": {

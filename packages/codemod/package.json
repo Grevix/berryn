@@ -1,6 +1,6 @@
 {
   "name": "@berryn/codemod",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Berryn Codemod Engine — Reversible AST transformations, patch previews, and Git worktrees",
   "repository": {
     "type": "git",
@@ -35,9 +35,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/core": "workspace:*",
-    "@berryn/diagnostics": "workspace:*",
-    "@berryn/project-inspect": "workspace:*",
+    "@berryn/core": "0.2.1",
+    "@berryn/diagnostics": "0.2.1",
+    "@berryn/project-inspect": "0.2.1",
     "ts-morph": "^23.0.0"
   },
   "devDependencies": {},

@@ -1,9 +1,9 @@
-import { readFileSync, statSync } from 'node:fs';
+﻿import { readFileSync, statSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { createRunContext, createResultEnvelope } from '@berryn/core';
 import { buildMigrationReport, renderReportJson, renderReportMarkdown } from '@berryn/migration-report';
 import { inspectProject } from '@berryn/project-inspect';
-import { assertPathInSandbox } from '@berryn/security';
+import { assertPathInSandbox } from '@berryn/guard';
 import { inspectXlsx } from '@berryn/xlsx-inspect';
 import { EXIT_CODES } from '../exit-codes.js';
 
@@ -56,3 +56,4 @@ export function handleInspectCommand(targetPath: string, options: InspectCommand
     process.exit(EXIT_CODES.ERR_INTERNAL);
   }
 }
+

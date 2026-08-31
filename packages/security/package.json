@@ -1,7 +1,7 @@
-{
-  "name": "@berryn/security",
-  "version": "0.2.0",
-  "description": "Berryn Security — Resource budget enforcement, canonical path sandbox, zip bomb defense, and XXE guards",
+﻿{
+  "name": "@berryn/guard",
+  "version": "0.2.1",
+  "description": "Berryn Security â€” Resource budget enforcement, canonical path sandbox, zip bomb defense, and XXE guards",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Grevix/berryn.git"
@@ -35,8 +35,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/core": "workspace:*",
-    "@berryn/diagnostics": "workspace:*"
+    "@berryn/core": "0.2.1",
+    "@berryn/diagnostics": "0.2.1"
   },
   "devDependencies": {},
   "publishConfig": {
@@ -48,3 +48,4 @@
     "README.md"
   ]
 }
+

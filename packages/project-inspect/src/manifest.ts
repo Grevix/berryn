@@ -1,8 +1,8 @@
-import { existsSync, readFileSync } from 'node:fs';
+﻿import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Diagnostic } from '@berryn/core';
 import { createDiagnostic, DIAGNOSTIC_CODES } from '@berryn/diagnostics';
-import { assertPathInSandbox } from '@berryn/security';
+import { assertPathInSandbox } from '@berryn/guard';
 
 export interface PackageManifestInfo {
   name: string;
@@ -110,3 +110,4 @@ export function inspectPackageManifest(
     diagnostics
   };
 }
+
