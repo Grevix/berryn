@@ -1,6 +1,6 @@
 {
   "name": "@berryn/core",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Berryn Core — Vertical-neutral run context, result envelopes, branded types, and policy structures",
   "repository": {
     "type": "git",
@@ -35,6 +35,14 @@
     "clean": "rimraf dist"
   },
   "dependencies": {},
+  "peerDependencies": {
+    "@types/node": ">=22.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    }
+  },
   "devDependencies": {},
   "publishConfig": {
     "access": "public",
@@ -42,7 +50,6 @@
   },
   "files": [
     "dist",
-    "README.md",
-    "LICENSE"
+    "README.md"
   ]
 }

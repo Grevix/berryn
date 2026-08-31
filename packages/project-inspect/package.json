@@ -1,6 +1,6 @@
 {
   "name": "@berryn/project-inspect",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Berryn Project Inspection — AST import scanner, package manifest parser, and call expression catalog",
   "repository": {
     "type": "git",
@@ -47,7 +47,6 @@
   },
   "files": [
     "dist",
-    "README.md",
-    "LICENSE"
+    "README.md"
   ]
 }

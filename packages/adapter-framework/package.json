@@ -1,6 +1,6 @@
 {
   "name": "@berryn/adapter-framework",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Berryn Vertical Adapter Framework — Abstract interface for multi-vertical dependency migration probes",
   "repository": {
     "type": "git",
@@ -46,7 +46,6 @@
   },
   "files": [
     "dist",
-    "README.md",
-    "LICENSE"
+    "README.md"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@berryn/xlsx-diff",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Berryn XLSX Diff Engine — Package ZIP entry diffs, OPC graph diffs, and normalized XML semantic diffs",
   "repository": {
     "type": "git",
@@ -47,7 +47,6 @@
   },
   "files": [
     "dist",
-    "README.md",
-    "LICENSE"
+    "README.md"
   ]
 }

@@ -96,7 +96,11 @@ importers:
         specifier: ^23.0.0
         version: 23.0.0
 
-  packages/core: {}
+  packages/core:
+    dependencies:
+      '@types/node':
+        specifier: '>=22.0.0'
+        version: 22.20.1
 
   packages/diagnostics:
     dependencies:
@@ -115,6 +119,9 @@ importers:
       '@berryn/xlsx-inspect':
         specifier: workspace:*
         version: link:../xlsx-inspect
+      '@types/node':
+        specifier: '>=22.0.0'
+        version: 22.20.1
 
   packages/ffmpeg-probe:
     dependencies:

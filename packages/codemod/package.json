@@ -1,6 +1,6 @@
 {
   "name": "@berryn/codemod",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Berryn Codemod Engine — Reversible AST transformations, patch previews, and Git worktrees",
   "repository": {
     "type": "git",
@@ -47,7 +47,6 @@
   },
   "files": [
     "dist",
-    "README.md",
-    "LICENSE"
+    "README.md"
   ]
 }
