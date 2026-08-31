@@ -3,7 +3,7 @@
 **Berryn is migration, compatibility, validation, and evidence infrastructure for safely changing developer dependencies without turning uncertainty into silent breakage.**
 
 [![npm version](https://img.shields.io/npm/v/berryn.svg)](https://www.npmjs.com/package/berryn)
-[![CI](https://github.com/Grevix/berryn/actions/workflows/ci.yml/badge.svg)](https://github.com/Grevix/berryn/actions/workflows/ci.yml)
+[![Berryn CI Pipeline](https://github.com/Grevix/berryn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Grevix/berryn/actions/workflows/ci.yml)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D22.0.0-brightgreen.svg)](package.json)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7%2B-blue.svg)](tsconfig.base.json)
 
