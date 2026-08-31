@@ -30,3 +30,29 @@ export function renderReportMarkdown(report: BERRYN_REPORT_V1): string {
 
   return md;
 }
+
+export function renderReportPrComment(report: BERRYN_REPORT_V1): string {
+  const badge =
+    report.summary.deployability === 'ready'
+      ? '🟢 **PASSED**'
+      : report.summary.deployability === 'warnings-review-required'
+      ? '🟡 **WARNINGS**'
+      : '🔴 **BLOCKED**';
+
+  let comment = `### 🍇 Berryn CI Migration Evidence Report ${badge}\n\n`;
+  comment += `| Metric | Count |\n`;
+  comment += `| --- | --- |\n`;
+  comment += `| Deployability | ${report.summary.deployability} |\n`;
+  comment += `| Diagnostics | ${report.summary.totalDiagnostics} |\n`;
+  comment += `| Security Findings | ${report.summary.criticalCount} |\n`;
+  comment += `| Errors | ${report.summary.errorCount} |\n`;
+  comment += `| Warnings | ${report.summary.warningCount} |\n\n`;
+
+  if (report.diagnostics.length > 0) {
+    comment += `<details><summary>View Diagnostics (${report.diagnostics.length})</summary>\n\n\`\`\`text\n`;
+    comment += report.diagnostics.map((d) => formatDiagnosticText(d)).join('\n');
+    comment += `\n\`\`\`\n</details>\n`;
+  }
+
+  return comment;
+}

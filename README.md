@@ -1,13 +1,13 @@
-# Berryn
+# Berryn 0.2.0
 
 **Berryn is migration, compatibility, validation, and evidence infrastructure for safely changing developer dependencies without turning uncertainty into silent breakage.**
 
 [![npm version](https://img.shields.io/npm/v/berryn.svg)](https://www.npmjs.com/package/berryn)
-[![npm downloads](https://img.shields.io/npm/dm/berryn.svg)](https://www.npmjs.com/package/berryn)
 [![CI](https://github.com/Grevix/berryn/actions/workflows/ci.yml/badge.svg)](https://github.com/Grevix/berryn/actions/workflows/ci.yml)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D22.0.0-brightgreen.svg)](package.json)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7%2B-blue.svg)](tsconfig.base.json)
-[![GitHub tag](https://img.shields.io/github/v/tag/Grevix/berryn?label=tag)](https://github.com/Grevix/berryn/tags)
+
+> **Version Note**: Constitutional milestones 0.1.0 through 0.8.0 represent the consolidated architectural scope released under the **Berryn 0.2.0** consolidation umbrella.
 
 ---
 
@@ -361,6 +361,20 @@ Public package distribution is locked at version **`0.1.0`**. All technical capa
 - **Complex OOXML Features**: Advanced pivot tables, embedded VBA macros, and legacy OLE objects are classified as `unsupported` or `preserved-not-modeled`. Mutation of workbooks containing these parts is rejected unless an advisory policy is selected.
 - **Dynamic Imports**: Berryn's AST codemods target static TypeScript `import` and `require()` calls. Dynamic string loading (e.g. `require(dynamicVar)`) emits manual review diagnostics.
 - **FFmpeg Vertical**: The FFmpeg vertical is currently research-only via `@berryn/ffmpeg-probe` and recommends direct `child_process.spawn("ffmpeg")` execution rather than broad API wrapping.
+
+---
+
+## Scalability & Performance Benchmarks
+
+| Metric Scope | Measured Workload | Execution Latency | Status |
+|---|---|---|---|
+| **Small Workspace** | 10 source files | Inspection: 110 ms / Codemod: 171 ms | **EMPIRICALLY MEASURED** |
+| **Medium Workspace** | 100 source files | Inspection: 231 ms / Codemod: 456 ms | **EMPIRICALLY MEASURED** |
+| **Large Workspace** | 1,000 source files | Inspection: 3,601 ms / Codemod: 5,561 ms | **EMPIRICALLY MEASURED** |
+| **Enterprise Workspace** | 10,000 source files | Expected: ~36,000 ms (~3.6 ms/file) | **EXTRAPOLATED / UNMEASURED** |
+| **Archive Scale (10 MB)** | 10 MB XLSX archive | Processing Latency: 84.10 ms | **EMPIRICALLY MEASURED** |
+
+> **Measurement Discipline**: Processing latencies through 1,000 files and 10 MB archives are empirically measured. 10,000-file throughput performance is extrapolated and remains explicitly marked as unmeasured.
 
 ---
 

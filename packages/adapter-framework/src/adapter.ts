@@ -10,7 +10,7 @@ export interface AdapterCapability {
 export interface VerticalInspectionResult {
   vertical: string;
   incumbentName: string;
-  detectedVersion?: string;
+  detectedVersion?: string | undefined;
   observedPatterns: string[];
 }
 

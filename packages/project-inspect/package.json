@@ -22,6 +22,10 @@
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     }
   },
@@ -31,9 +35,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/core": "workspace:*",
-    "@berryn/diagnostics": "workspace:*",
-    "@berryn/security": "workspace:*",
+    "@berryn/core": "0.1.1",
+    "@berryn/diagnostics": "0.1.1",
+    "@berryn/security": "0.1.1",
     "typescript": "^5.7.2"
   },
   "devDependencies": {},

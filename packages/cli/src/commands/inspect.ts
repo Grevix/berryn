@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
+import { dirname } from 'node:path';
 import { createRunContext, createResultEnvelope } from '@berryn/core';
 import { buildMigrationReport, renderReportJson, renderReportMarkdown } from '@berryn/migration-report';
 import { inspectProject } from '@berryn/project-inspect';
@@ -17,9 +18,13 @@ export function handleInspectCommand(targetPath: string, options: InspectCommand
 
   try {
     const sanitizedPath = assertPathInSandbox(targetPath, context.policy.allowedRoots);
+    const stat = statSync(sanitizedPath);
+    const isDirectory = stat.isDirectory();
+    const isManifest = sanitizedPath.toLowerCase().endsWith('package.json');
 
-    if (options.project) {
-      const { value, diagnostics } = inspectProject(sanitizedPath);
+    if (options.project || isDirectory || isManifest) {
+      const projDir = isDirectory ? sanitizedPath : (isManifest ? dirname(sanitizedPath) : sanitizedPath);
+      const { value, diagnostics } = inspectProject(projDir);
       const envelope = createResultEnvelope(value, context.runMetadata, diagnostics);
       const report = buildMigrationReport(envelope, 'inspection');
 

@@ -11,7 +11,7 @@ const program = new Command();
 program
   .name('berryn')
   .description('Berryn — Migration, compatibility, and validation infrastructure CLI')
-  .version('0.1.1');
+  .version('0.2.0');
 
 program
   .command('inspect <path>')
@@ -40,9 +40,13 @@ program
 
 program
   .command('migrate <project>')
-  .description('Generate AST-driven codemod migration plan and patch preview')
+  .description('Generate AST-driven codemod migration plan, patch preview, apply, or undo')
   .option('--from <incumbent>', 'Incumbent package name (exceljs, xlsx)', 'exceljs')
+  .option('--plan-only', 'Generate migration plan without patch text preview', false)
   .option('--dry-run', 'Preview transformations without modifying files', true)
+  .option('--apply', 'Apply codemod transformations to files and record reversal state', false)
+  .option('--undo', 'Revert latest applied migration using reversal record', false)
+  .option('--worktree', 'Run migration inside isolated disposable Git worktree', false)
   .option('--format <format>', 'Output format (text, json, markdown)', 'text')
   .action((project, options) => {
     handleMigrateCommand(project, options);
