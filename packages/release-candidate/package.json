@@ -35,8 +35,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/core": "0.1.1",
-    "@berryn/diagnostics": "0.1.1"
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*"
   },
   "devDependencies": {},
   "publishConfig": {

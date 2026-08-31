@@ -35,9 +35,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/core": "0.1.1",
-    "@berryn/diagnostics": "0.1.1",
-    "@berryn/xlsx-inspect": "0.1.1",
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*",
+    "@berryn/xlsx-inspect": "workspace:*",
     "fast-xml-parser": "^4.5.1"
   },
   "devDependencies": {},

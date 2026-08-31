@@ -29,6 +29,9 @@ importers:
       '@berryn/diagnostics':
         specifier: workspace:*
         version: link:../diagnostics
+      '@berryn/project-inspect':
+        specifier: workspace:*
+        version: link:../project-inspect
 
   packages/cli:
     dependencies:

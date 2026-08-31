@@ -35,10 +35,10 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/adapter-framework": "0.1.1",
-    "@berryn/core": "0.1.1",
-    "@berryn/diagnostics": "0.1.1",
-    "@berryn/project-inspect": "0.1.1"
+    "@berryn/adapter-framework": "workspace:*",
+    "@berryn/core": "workspace:*",
+    "@berryn/diagnostics": "workspace:*",
+    "@berryn/project-inspect": "workspace:*"
   },
   "devDependencies": {},
   "publishConfig": {
