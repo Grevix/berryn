@@ -1,4 +1,4 @@
-import {
+﻿import {
   applyCodemodPlan,
   createDisposableWorktree,
   createUnifiedPatch,
@@ -8,7 +8,7 @@ import {
 import { createResultEnvelope, createRunContext } from '@berryn/core';
 import { buildMigrationReport, renderReportJson, renderReportMarkdown } from '@berryn/migration-report';
 import { findSourceFiles } from '@berryn/project-inspect';
-import { assertPathInSandbox } from '@berryn/security';
+import { assertPathInSandbox } from '@berryn/guard';
 import { EXIT_CODES } from '../exit-codes.js';
 
 export interface MigrateCommandOptions {
@@ -43,9 +43,9 @@ export function handleMigrateCommand(projectPath: string, options: MigrateComman
       } else {
         console.log(renderReportMarkdown(report));
         if (success) {
-          console.log(`\n✅ Migration successfully undone. Restored ${restoredFiles.length} files.`);
+          console.log(`\nâœ… Migration successfully undone. Restored ${restoredFiles.length} files.`);
         } else {
-          console.error(`\n❌ Migration undo failed: ${undoDiags.map(d => d.message).join('\n')}`);
+          console.error(`\nâŒ Migration undo failed: ${undoDiags.map(d => d.message).join('\n')}`);
         }
       }
       process.exit(success ? EXIT_CODES.SUCCESS : EXIT_CODES.ERR_VALIDATION);
@@ -114,3 +114,4 @@ export function handleMigrateCommand(projectPath: string, options: MigrateComman
     process.exit(EXIT_CODES.ERR_INTERNAL);
   }
 }
+

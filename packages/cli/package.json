@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "berryn",
   "version": "0.2.1",
-  "description": "Berryn — Migration, compatibility, and validation infrastructure CLI",
+  "description": "Berryn â€” Migration, compatibility, and validation infrastructure CLI",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Grevix/berryn.git"
@@ -39,7 +39,7 @@
     "@berryn/preservation": "0.2.1",
     "@berryn/project-inspect": "0.2.1",
     "@berryn/release-candidate": "0.2.1",
-    "@berryn/security": "0.2.1",
+    "@berryn/guard": "0.2.1",
     "@berryn/xlsx-diff": "0.2.1",
     "@berryn/xlsx-inspect": "0.2.1",
     "@berryn/xlsx-validate": "0.2.1",
@@ -51,3 +51,4 @@
     "registry": "https://registry.npmjs.org/"
   }
 }
+

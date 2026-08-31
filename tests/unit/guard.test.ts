@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+﻿import { describe, expect, it } from 'vitest';
 import { DEFAULT_RESOURCE_LIMITS } from '../../packages/core/src/index.js';
 import { assertPathInSandbox, assertResourceLimits, assertSafeXmlPayload, assertZipBombRatio, SecurityError } from '../../packages/security/src/index.js';
 
-describe('@berryn/security', () => {
+describe('@berryn/guard', () => {
   it('allows paths within allowed roots sandbox', () => {
     const root = process.cwd();
     const result = assertPathInSandbox(root, [root]);
@@ -31,3 +31,4 @@ describe('@berryn/security', () => {
     ).toThrow(SecurityError);
   });
 });
+

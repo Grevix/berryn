@@ -1,4 +1,4 @@
-# Berryn 0.2.0
+﻿# Berryn 0.2.0
 
 **Berryn is migration, compatibility, validation, and evidence infrastructure for safely changing developer dependencies without turning uncertainty into silent breakage.**
 
@@ -24,19 +24,19 @@ Existing tools offer only all-or-nothing replacements or blind regex codemods th
 ## The Problem
 
 ```
-[ Legacy Dependency ] ──> [ Manual Code Rewrites ] ──> [ Blind Serialization ] ──> [ UNCERTAIN RESULT ]
-                                                                                           │
-                                                                                           ▼
+[ Legacy Dependency ] â”€â”€> [ Manual Code Rewrites ] â”€â”€> [ Blind Serialization ] â”€â”€> [ UNCERTAIN RESULT ]
+                                                                                           â”‚
+                                                                                           â–¼
                                                                                 (Silent Data Corruption)
 ```
 
 ### The Berryn Workflow
 
 ```
-[ Legacy Dependency ] ──> [ Berryn Inspection ] ──> [ Semantic Diff ] ──> [ Reversible AST Codemod ]
-                                                                                           │
-                                                                                           ▼
-[ Deployment Decision ] <── [ Evidence Report ] <── [ No-Silent-Loss Guard ] <── [ Layered Validation ]
+[ Legacy Dependency ] â”€â”€> [ Berryn Inspection ] â”€â”€> [ Semantic Diff ] â”€â”€> [ Reversible AST Codemod ]
+                                                                                           â”‚
+                                                                                           â–¼
+[ Deployment Decision ] <â”€â”€ [ Evidence Report ] <â”€â”€ [ No-Silent-Loss Guard ] <â”€â”€ [ Layered Validation ]
 ```
 
 ---
@@ -88,7 +88,7 @@ flowchart LR
 ```mermaid
 graph TD
     CLI["berryn CLI (Exit codes: 0, 2, 3, 4, 5, 10)"] --> CORE["@berryn/core (RunContext, BerrynPolicy, Envelope)"]
-    CORE --> SEC["@berryn/security (Path Sandbox, Ratio Shields, XXE Shields)"]
+    CORE --> SEC["@berryn/guard (Path Sandbox, Ratio Shields, XXE Shields)"]
     CORE --> DIAG["@berryn/diagnostics (BRN-* Error Codes & Renderers)"]
     CLI --> PINSPECT["@berryn/project-inspect (Manifest & ts-morph AST Scanner)"]
     CLI --> XINSPECT["@berryn/xlsx-inspect (ZIP Archive Reader & OPC Parser)"]
@@ -113,7 +113,7 @@ All packages are maintained inside a single TypeScript `pnpm` monorepo released 
 |---|---|---|---|
 | [`@berryn/core`](file:///c:/Users/Aaryan%20Rawat/Downloads/Berryn/packages/core) | Branded nominal types, policy context, envelopes, SHA-256 hashing, error hierarchy | Public API | **VERIFIED** |
 | [`@berryn/diagnostics`](file:///c:/Users/Aaryan%20Rawat/Downloads/Berryn/packages/diagnostics) | Diagnostic code catalog (`BRN-*`), formatters, remediation renderers | Public API | **VERIFIED** |
-| [`@berryn/security`](file:///c:/Users/Aaryan%20Rawat/Downloads/Berryn/packages/security) | Sandbox path canonicalizer, resource limits, ZIP bomb ratio shield (100:1), XXE shield | Public API | **VERIFIED** |
+| [`@berryn/guard`](file:///c:/Users/Aaryan%20Rawat/Downloads/Berryn/packages/guard) | Sandbox path canonicalizer, resource limits, ZIP bomb ratio shield (100:1), XXE shield | Public API | **VERIFIED** |
 | [`@berryn/project-inspect`](file:///c:/Users/Aaryan%20Rawat/Downloads/Berryn/packages/project-inspect) | `package.json` manifest inspector and `ts-morph` AST import scanner | Public API | **VERIFIED** |
 | [`@berryn/xlsx-inspect`](file:///c:/Users/Aaryan%20Rawat/Downloads/Berryn/packages/xlsx-inspect) | Bounded ZIP reader (`fflate`), OPC relationship graph parser (`fast-xml-parser`) | Public API | **VERIFIED** |
 | [`@berryn/xlsx-diff`](file:///c:/Users/Aaryan%20Rawat/Downloads/Berryn/packages/xlsx-diff) | Archive entry byte diff and normalized XML string comparison engine | Public API | **VERIFIED** |
@@ -277,16 +277,16 @@ Observation Classifications:
 ## Layered Validation Model
 
 ```
-[ Layer 1: Structural Integrity ] ──> Is the ZIP archive well-formed and under decompression limits?
-              │
-              ▼
-[ Layer 2: OPC Relationships ]    ──> Are all .rels relationships resolvable and validly typed?
-              │
-              ▼
-[ Layer 3: Semantic XML ]        ──> Did declared cell values, formulas, or names change?
-              │
-              ▼
-[ Layer 4: Consumer Smoke Test ] ──> (Optional) Does headless LibreOffice open the result cleanly?
+[ Layer 1: Structural Integrity ] â”€â”€> Is the ZIP archive well-formed and under decompression limits?
+              â”‚
+              â–¼
+[ Layer 2: OPC Relationships ]    â”€â”€> Are all .rels relationships resolvable and validly typed?
+              â”‚
+              â–¼
+[ Layer 3: Semantic XML ]        â”€â”€> Did declared cell values, formulas, or names change?
+              â”‚
+              â–¼
+[ Layer 4: Consumer Smoke Test ] â”€â”€> (Optional) Does headless LibreOffice open the result cleanly?
 ```
 
 ---
@@ -426,4 +426,5 @@ pnpm test
 
 ## License
 
-[MIT](LICENSE) © Berryn Maintainers.
+[MIT](LICENSE) Â© Berryn Maintainers.
+

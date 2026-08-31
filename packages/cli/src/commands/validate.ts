@@ -1,8 +1,8 @@
-import { readFileSync } from 'node:fs';
+﻿import { readFileSync } from 'node:fs';
 import type { Diagnostic } from '@berryn/core';
 import { createRunContext, createResultEnvelope } from '@berryn/core';
 import { buildMigrationReport, renderReportJson, renderReportMarkdown } from '@berryn/migration-report';
-import { assertPathInSandbox } from '@berryn/security';
+import { assertPathInSandbox } from '@berryn/guard';
 import { validateRelationshipIntegrity, validateSemanticContents, validateStructuralIntegrity } from '@berryn/xlsx-validate';
 import { EXIT_CODES } from '../exit-codes.js';
 
@@ -58,3 +58,4 @@ export function handleValidateCommand(inputPath: string, options: ValidateComman
     process.exit(EXIT_CODES.ERR_INTERNAL);
   }
 }
+

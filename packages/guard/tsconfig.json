@@ -7,8 +7,7 @@
   "include": ["src/**/*"],
   "references": [
     { "path": "../core" },
-    { "path": "../diagnostics" },
-    { "path": "../guard" }
+    { "path": "../diagnostics" }
   ]
 }
 

@@ -1,6 +1,6 @@
-import type { Diagnostic } from '@berryn/core';
+﻿import type { Diagnostic } from '@berryn/core';
 import { createDiagnostic, DIAGNOSTIC_CODES } from '@berryn/diagnostics';
-import { assertSafeXmlPayload } from '@berryn/security';
+import { assertSafeXmlPayload } from '@berryn/guard';
 import { XMLParser } from 'fast-xml-parser';
 
 export interface OpcRelationship {
@@ -101,3 +101,4 @@ export function parseRelsXml(
 
   return { relationships, diagnostics };
 }
+

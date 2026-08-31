@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "@berryn/project-inspect",
   "version": "0.2.1",
-  "description": "Berryn Project Inspection — AST import scanner, package manifest parser, and call expression catalog",
+  "description": "Berryn Project Inspection â€” AST import scanner, package manifest parser, and call expression catalog",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Grevix/berryn.git"
@@ -37,7 +37,7 @@
   "dependencies": {
     "@berryn/core": "0.2.1",
     "@berryn/diagnostics": "0.2.1",
-    "@berryn/security": "0.2.1",
+    "@berryn/guard": "0.2.1",
     "typescript": "^5.7.2"
   },
   "devDependencies": {},
@@ -50,3 +50,4 @@
     "README.md"
   ]
 }
+

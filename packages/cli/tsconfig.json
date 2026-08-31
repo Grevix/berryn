@@ -1,4 +1,4 @@
-{
+﻿{
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
@@ -8,7 +8,7 @@
   "references": [
     { "path": "../core" },
     { "path": "../diagnostics" },
-    { "path": "../security" },
+    { "path": "../guard" },
     { "path": "../project-inspect" },
     { "path": "../xlsx-inspect" },
     { "path": "../xlsx-diff" },
@@ -22,3 +22,4 @@
     { "path": "../release-candidate" }
   ]
 }
+
