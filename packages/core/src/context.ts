@@ -26,7 +26,7 @@ export function createRunContext(options: RunContextOptions = {}): RunContext {
 
   const runMetadata: RunMetadata = {
     runId: makeRunId(`run_${randomUUID().replace(/-/g, '')}`),
-    toolVersion: options.toolVersion ?? '0.2.0',
+    toolVersion: options.toolVersion ?? '0.2.1',
     startedAt: new Date().toISOString(),
     cwd,
     runtime: {

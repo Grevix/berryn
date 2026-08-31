@@ -1,6 +1,6 @@
 {
   "name": "@berryn/ffmpeg-probe",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Berryn FFmpeg Research Probe — Evidence-driven inspection of fluent-ffmpeg migration patterns and direct-spawn recommendation",
   "repository": {
     "type": "git",
@@ -35,10 +35,10 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/adapter-framework": "workspace:*",
-    "@berryn/core": "workspace:*",
-    "@berryn/diagnostics": "workspace:*",
-    "@berryn/project-inspect": "workspace:*"
+    "@berryn/adapter-framework": "0.2.1",
+    "@berryn/core": "0.2.1",
+    "@berryn/diagnostics": "0.2.1",
+    "@berryn/project-inspect": "0.2.1"
   },
   "devDependencies": {},
   "publishConfig": {

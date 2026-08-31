@@ -1,6 +1,6 @@
 {
   "name": "@berryn/diagnostics",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Berryn Diagnostics — Diagnostic catalog, severity levels, location formatting, and remediation text",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/core": "workspace:*"
+    "@berryn/core": "0.2.1"
   },
   "devDependencies": {},
   "publishConfig": {

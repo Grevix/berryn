@@ -1,6 +1,6 @@
 {
   "name": "@berryn/core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Berryn Core — Vertical-neutral run context, result envelopes, branded types, and policy structures",
   "repository": {
     "type": "git",

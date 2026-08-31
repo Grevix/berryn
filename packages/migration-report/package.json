@@ -1,6 +1,6 @@
 {
   "name": "@berryn/migration-report",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Berryn Migration Report — JSON schema validator and Markdown human summary generator",
   "repository": {
     "type": "git",
@@ -35,8 +35,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@berryn/core": "workspace:*",
-    "@berryn/diagnostics": "workspace:*"
+    "@berryn/core": "0.2.1",
+    "@berryn/diagnostics": "0.2.1"
   },
   "devDependencies": {},
   "publishConfig": {
